@@ -18,28 +18,29 @@ variables:
 
 targets:
   dev:
-    # The default target uses 'mode: development' to create a development copy.
-    # - Deployed resources get prefixed with '[dev my_user_name]'
-    # - Any job schedules and triggers are paused by default.
-    # See also https://docs.databricks.com/dev-tools/bundles/deployment-modes.html.
+    # Development target creates an isolated copy per user
+    # - Resources are prefixed with [dev <username>]
+    # - Jobs/triggers are paused by default
     mode: development
     default: true
     workspace:
-      host: https://dbc-5e26bbf1-9335.cloud.databricks.com
-      root_path:  /Workspace/Shared/${bundle.name}/${bundle.target} #modify if you want to change the default deployment path
+      host: https://dbc-7ccec0a9-5a27.cloud.databricks.com
+      root_path: ~/Databricks_medallion_architecture/dev
     variables:
       catalog: udp
       schema: dev
     presets:
       artifacts_dynamic_version: true
+
   prod:
+    # Production target uses shared workspace paths
     mode: production
     workspace:
-      host: https://dbc-76918ad0-2879.cloud.databricks.com
+      host: https://dbc-7ccec0a9-5a27.cloud.databricks.com
       root_path: /Workspace/Shared/${bundle.name}/${bundle.target}
     variables:
       catalog: udp
       schema: prod
     permissions:
-      - user_name: Rahul Sharma
+      - user_name: sharma.rahul@jungleegames.com
         level: CAN_MANAGE
