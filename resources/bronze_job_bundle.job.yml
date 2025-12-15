@@ -1,0 +1,19 @@
+# moving resource  in resources section for job deployment
+resources:
+  jobs:
+    Bronze_layer_job:
+      name: Bronze_layer_job_${bundle.target}
+      max_concurrent_runs: 1
+      tasks:
+        - task_key: Bronze_layer
+          notebook_task:
+            notebook_path: ../notebooks/notebook_1.ipynb
+            source: WORKSPACE
+          environment_key: Default
+      queue:
+        enabled: true
+      environments:
+        - environment_key: Default
+          spec:
+            environment_version: "4"
+      performance_target: PERFORMANCE_OPTIMIZED

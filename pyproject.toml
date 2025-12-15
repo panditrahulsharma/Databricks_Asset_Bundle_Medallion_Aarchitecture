@@ -1,7 +1,7 @@
 [project]
 name = "Databricks_medallion_architecture"
 version = "0.0.1"
-authors = [{ name = "sharma.rahul@jungleegames.com" }]
+authors = [{ name = "panditrahul151197@gmail.com" }]
 requires-python = ">=3.10,<3.13"
 dependencies = [
     # Any dependencies for jobs and pipelines in this project can be added here
