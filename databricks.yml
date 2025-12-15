@@ -39,13 +39,13 @@ targets:
       host: https://dbc-7ccec0a9-5a27.cloud.databricks.com # replace with your Workspace URL
       root_path: /Workspace/Shared/.bundle/${bundle.name}/${bundle.target}
     permissions:
-      - service_principal_name: lakshaykumarpandit@gmail.com # update with your service principal name
+      - user_name: lakshaykumarpandit@gmail.com # update with your service principal name
         level: CAN_MANAGE
     run_as:
-      service_principal_name: lakshaykumarpandit@gmail.com # update with your service principal name
+      user_name: lakshaykumarpandit@gmail.com # update with your service principal name
 
   test:
-    mode: testing
+    mode: production
     variables:
       catalog:
         default: "citibike_test"
@@ -57,11 +57,10 @@ targets:
       host: https://dbc-7ccec0a9-5a27.cloud.databricks.com # replace with your Workspace URL
       root_path: /Workspace/Shared/.bundle/${bundle.name}/${bundle.target}
     permissions:
-      - service_principal_name: lakshaykumarpandit@gmail.com # update with your service principal name
+      - user_name: lakshaykumarpandit@gmail.com # update with your service principal name
         level: CAN_MANAGE
     run_as:
-      service_principal_name: lakshaykumarpandit@gmail.com # update with your service principal name
-
+      user_name: lakshaykumarpandit@gmail.com # update with your service principal name
   prod:
     mode: production
     variables:
@@ -73,7 +72,7 @@ targets:
       host: https://dbc-7ccec0a9-5a27.cloud.databricks.com # replace with your Workspace URL
       root_path: /Workspace/Shared/.bundle/${bundle.name}/${bundle.target}
     permissions:
-      - service_principal_name: lakshaykumarpandit@gmail.com # update with your service principal name
+      - user_name: lakshaykumarpandit@gmail.com # update with your service principal name
         level: CAN_MANAGE
     run_as:
-      service_principal_name: lakshaykumarpandit@gmail.com # update with your service principal name
+      user_name: lakshaykumarpandit@gmail.com # update with your service principal name
