@@ -26,7 +26,7 @@ targets:
     default: true
     workspace:
       host: https://dbc-5e26bbf1-9335.cloud.databricks.com
-      root_path: /Workspace/sharma.rahul@jungleegames.com/${bundle.name}/${bundle.target} #modify if you want to change the default deployment path
+      root_path:  /Workspace/Shared/${bundle.name}/${bundle.target} #modify if you want to change the default deployment path
     variables:
       catalog: udp
       schema: dev
@@ -36,11 +36,10 @@ targets:
     mode: production
     workspace:
       host: https://dbc-76918ad0-2879.cloud.databricks.com
-      # We explicitly deploy to /Workspace/Users/sharma.rahul@jungleegames.com to make sure we only have a single copy.
       root_path: /Workspace/Shared/${bundle.name}/${bundle.target}
     variables:
       catalog: udp
       schema: prod
     permissions:
-      - user_name: sharma.rahul@jungleegames.com
+      - user_name: Rahul Sharma
         level: CAN_MANAGE
