@@ -1,1 +1,0 @@
-spark.sql("select 1").show()
