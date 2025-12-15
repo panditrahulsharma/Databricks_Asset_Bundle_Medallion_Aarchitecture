@@ -14,7 +14,10 @@ variables:
     default: "citibike_dev"
     description: The catalog to use
   schema:
+    default: "public"
     description: The schema to use
+  dev_flag:
+    default: true
 
 
 targets:
@@ -24,14 +27,14 @@ targets:
     # - Deployed resources get prefixed with '[dev my_user_name]'
     # - Any job schedules and triggers are paused by default.
     # See also https://docs.databricks.com/dev-tools/bundles/deployment-modes.html.
-    mode: production
+    mode: production # changed from development to production
     variables:
       catalog:
         default: "citibike_test"
       dev_flag:
         default: false
     presets:
-      name_prefix: '[testing] '
+      name_prefix: '[development] '
     workspace:
       host: https://dbc-7ccec0a9-5a27.cloud.databricks.com # replace with your Workspace URL
       root_path: /Workspace/Shared/.bundle/${bundle.name}/${bundle.target}
@@ -42,7 +45,7 @@ targets:
       service_principal_name: lakshaykumarpandit@gmail.com # update with your service principal name
 
   test:
-    mode: production
+    mode: testing
     variables:
       catalog:
         default: "citibike_test"
