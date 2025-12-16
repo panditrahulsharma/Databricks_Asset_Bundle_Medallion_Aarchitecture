@@ -1,5 +1,27 @@
 # Databricks_medallion_architecture
+
 Welcome to the repository for the Udemy course `CI/CD with Databricks Asset Bundles`. This repository serves as a supplementary resource, specifically providing project files used in the course.
+
+### 1. Project Archeticture
+
+<p align="center">
+  <img src="./images/citibike_project_diagram.png" width="800"/>
+</p>
+
+### 2. ETL Pipeline Demo Archeticture
+
+<p align="center">
+  <img src="./images/pipeline.png" width="800"/>
+</p>
+
+### 3. DataBricks Asset Bundle Archeticture
+
+<p align="center">
+  <img src="./images/bundles-cicd.png" width="800"/>
+</p>
+
+---
+
 
 ## Wiki
 This repository contains a [wiki](https://github.com/panditrahulsharma/Databricks_Asset_Bundle_Medallion_Aarchitecture/wiki) with project code and yaml configuration snippets for specific lectures.
