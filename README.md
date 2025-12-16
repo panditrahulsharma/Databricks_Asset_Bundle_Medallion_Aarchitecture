@@ -96,6 +96,8 @@ You'll also want to set up local Python environments for Databricks Connect and 
    sudo curl -fsSL https://raw.githubusercontent.com/databricks/setup-cli/main/install.sh | sudo sh
    ```
 
+
+
 2. Authenticate to your Databricks workspace, if you have not done so already:
     ```bash
     databricks configure
@@ -103,6 +105,16 @@ You'll also want to set up local Python environments for Databricks Connect and 
 
 3. To deploy a development copy of this project, type:
     ```bash
+
+    before deploying the bundle run this command to create catalogs and volume
+
+    $ python ./scripts/prerequisites/create_catalog.py
+
+    $ chmod +x ./scripts/prerequisites/upload_source_data.sh
+    
+    $ ./scripts/prerequisites/upload_source_data.sh
+
+
     databricks bundle deploy --profile dev --target dev --var="catalog=citibike_dev" 
     ```
     (Note that "dev" is the default target, so the `--target` parameter
