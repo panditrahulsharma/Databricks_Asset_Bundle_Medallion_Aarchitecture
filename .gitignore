@@ -11,3 +11,6 @@ scratch/**
 .venv_dbc
 .env
 .venv*
+
+.pytest_cache/
+.vscode/*
