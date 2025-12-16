@@ -10,6 +10,7 @@ jobs:
   demo-job:
     name: Demo Job
     runs-on: ubuntu-latest
+    environment: test
     steps:
       - name: Configure Databricks Profile
         run: |
