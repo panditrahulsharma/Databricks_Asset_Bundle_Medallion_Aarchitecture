@@ -1,14 +1,9 @@
 # test_datetime_utils.py
-import os ,sys
+
 import datetime
-
-sys.path.append(os.getcwd())
-from pyspark.sql import SparkSession
-
 from src.utils.datetime_utils import timestamp_to_date_col
 
-def test_timestamp_to_date_col():
-    spark=SparkSession.builder.appName("DateTimeUtilsTest").getOrCreate()
+def test_timestamp_to_date_col(spark):
             
     # Create a DataFrame with a known timestamp column using a datetime object
     data = [(datetime.datetime(2025, 4, 10, 10, 30, 0),)]
