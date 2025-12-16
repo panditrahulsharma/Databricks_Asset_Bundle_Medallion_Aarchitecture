@@ -39,7 +39,7 @@ with this project. It's also possible to interact with it directly using the CLI
 
 2. To deploy a development copy of this project, type:
     ```
-    $ databricks bundle deploy --profile dev --target dev
+    $ databricks bundle deploy --profile dev --target dev --var="catalog=citibike_dev" 
     ```
     (Note that "dev" is the default target, so the `--target` parameter
     is optional here.)
@@ -48,7 +48,7 @@ with this project. It's also possible to interact with it directly using the CLI
 
 3. Similarly, to deploy a production copy, type:
    ```
-   $ databricks bundle deploy --profile prod --target prod
+   $ databricks bundle deploy --profile prod --target prod --var="catalog=citibike_prod" 
    ```
 
 4. To run a job or pipeline, use the "run" command:

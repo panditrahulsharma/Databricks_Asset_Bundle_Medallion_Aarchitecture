@@ -33,6 +33,8 @@ resources:
           notebook_task:
             notebook_path: ../citibike_etl/notebooks/03_gold/03_gold_citibike_daily_ride_summary.ipynb
             source: WORKSPACE
+            base_parameters:
+              catalog: "${var.catalog}"
           environment_key: Default
         - task_key: 03_gold_citibike_daily_station_performance
           depends_on:
@@ -40,6 +42,8 @@ resources:
           notebook_task:
             notebook_path: ../citibike_etl/notebooks/03_gold/03_gold_citibike_daily_station_performance.ipynb
             source: WORKSPACE
+            base_parameters:
+              catalog: "${var.catalog}"
           environment_key: Default
       queue:
         enabled: true
