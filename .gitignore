@@ -10,3 +10,4 @@ scratch/**
 **/!explorations/README.md
 .venv_dbc
 .env
+.venv*
