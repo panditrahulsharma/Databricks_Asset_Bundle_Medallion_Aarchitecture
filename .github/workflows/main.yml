@@ -1,4 +1,4 @@
-name: Demo Workflow
+name: Databricks Profile Setup
 
 on:
   push:
@@ -11,7 +11,16 @@ jobs:
     name: Demo Job
     runs-on: ubuntu-latest
     steps:
-      - name: Message 1
-        run : echo ${{ secrets.DATABRICKS_TEST_HOST }}
-      - name: Message 2
-        run: echo "this is message 2"
+      - name: Configure Databricks Profile
+        run: |
+          # write out the profile (here called "DEVELOPMENT")
+          cat <<EOF > ~/.databrickscfg
+          [DEV]
+          host = ${{ secrets.DATABRICKS_TEST_HOST }}
+          token = ${{ secrets.DATABRICKS_TEST_TOKEN }}
+          EOF
+
+      - name: List Directory
+        run : ls -al ~/.
+      - name: Check the content inside file
+        run: cat ~/.databrickscfg
