@@ -33,14 +33,16 @@ jobs:
           cat <<EOF > ~/.databrickscfg
           [DEV]
           host = ${{ secrets.DATABRICKS_TEST_HOST }}
-          secret_token = ${{ secrets.DATABRICKS_TEST_TOKEN }}
+          token = ${{ secrets.DATABRICKS_TEST_TOKEN }}
           EOF
 
       - name: Deploy to DEV
         run: |
           databricks bundle deploy \
             --target dev \
-            --profile DEV
+            --profile DEV \
+            --var="catalog=citibike_dev" 
+
 
   cd-deploy-prod:
     name: Deploy to PROD
@@ -70,11 +72,13 @@ jobs:
           cat <<EOF > ~/.databrickscfg
           [PROD]
           host = ${{ secrets.DATABRICKS_PROD_HOST }}
-          secret_token = ${{ secrets.DATABRICKS_TOKEN_PROD }}
+          token = ${{ secrets.DATABRICKS_TOKEN_PROD }}
           EOF
 
       - name: Deploy to PROD
         run: |
           databricks bundle deploy \
             --target prod \
-            --profile PROD
+            --profile PROD \
+            --var="catalog=citibike_prod" 
+
