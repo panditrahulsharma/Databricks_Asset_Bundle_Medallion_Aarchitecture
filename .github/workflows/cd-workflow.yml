@@ -35,6 +35,13 @@ jobs:
           host = ${{ secrets.DATABRICKS_TEST_HOST }}
           token = ${{ secrets.DATABRICKS_TEST_TOKEN }}
           EOF
+      - name : Configuring Databricks Warehouse
+        run: |
+          python ./scripts/prerequisites/create_catalog.py
+
+          chmod +x ./scripts/prerequisites/upload_source_data.sh
+
+          ./scripts/prerequisites/upload_source_data.sh
 
       - name: Deploy to DEV
         run: |
