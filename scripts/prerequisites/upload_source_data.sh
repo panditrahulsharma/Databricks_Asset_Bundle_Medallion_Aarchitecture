@@ -4,7 +4,7 @@ set -e
 
 ZIP=./docs/JC-202503-citibike-tripdata.csv.zip
 TMP=./docs/citibike/
-ENVS=("dev" "test" "prod")
+ENVS=("dev" "prod")
 
 # unzip once
 rm -rf "$TMP"
@@ -19,7 +19,9 @@ for ENV in "${ENVS[@]}"; do
   databricks fs cp \
     "$TMP"/*.csv \
     "$DEST" \
-    --overwrite
+    --overwrite \
+    --target "$ENV"
+
 done
 
 # cleanup
