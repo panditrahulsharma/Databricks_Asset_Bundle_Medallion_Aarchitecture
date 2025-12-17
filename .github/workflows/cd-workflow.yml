@@ -60,7 +60,7 @@ jobs:
         run: |
           mkdir -p ~/.databricks
           cat <<EOF > ~/.databrickscfg
-          [DEV]
+          [dev]
           host = ${{ secrets.DATABRICKS_TEST_HOST }}
           token = ${{ secrets.DATABRICKS_TEST_TOKEN }}
           EOF
@@ -90,7 +90,7 @@ jobs:
       - name: Upload Source Data
         run: |
           chmod +x ./scripts/prerequisites/upload_source_data.sh
-          ./scripts/prerequisites/upload_source_data.sh
+          ./scripts/prerequisites/upload_source_data.sh dev
 
       # ---------------------------------------------------------
       # 10. Deploy Databricks Asset Bundle
@@ -99,7 +99,7 @@ jobs:
         run: |
           databricks bundle deploy \
             --target dev \
-            --profile DEV \
+            --profile dev \
             --var="catalog=citibike_dev"
 
 
