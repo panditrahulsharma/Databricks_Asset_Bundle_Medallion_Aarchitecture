@@ -134,7 +134,9 @@ You'll also want to set up local Python environments for Databricks Connect and 
 
     $ chmod +x ./scripts/prerequisites/upload_source_data.sh
     
-    $ ./scripts/prerequisites/upload_source_data.sh
+    $ ./scripts/prerequisites/upload_source_data.sh dev 
+    
+    $ ./scripts/prerequisites/upload_source_data.sh prod
 
 
     databricks bundle deploy --profile dev --target dev --var="catalog=citibike_dev" 
